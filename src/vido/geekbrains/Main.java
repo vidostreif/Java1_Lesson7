@@ -12,10 +12,25 @@ package vido.geekbrains;
 public class Main {
 
     public static void main(String[] args) {
-        Cat cat = new Cat("Barsik", 5);
         Plate plate = new Plate(100);
         plate.info();
-        cat.eat(plate);
-        plate.info();
+
+        Cat[] cats = new Cat[5];
+
+        cats[0] = new Cat("Barsik", 10);
+        cats[1] = new Cat("Murzik", 25);
+        cats[2] = new Cat("Vasya", 20);
+        cats[3] = new Cat("Kolobok", 50);
+        cats[4] = new Cat("Modelchik", 1);
+
+
+        for (Cat cat : cats) {
+            if (!cat.eat(plate)) {
+                plate.addFood(cat.getAppetite());
+                cat.eat(plate);
+            }
+            cat.info();
+            plate.info();
+        }
     }
 }

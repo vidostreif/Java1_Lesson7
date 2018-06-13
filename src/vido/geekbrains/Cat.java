@@ -10,13 +10,25 @@ public class Cat {
         this.appetite = appetite;
         this.satiety = false;
     }
-    public void eat(Plate p) {
+    public boolean eat(Plate p) {
+        System.out.println("Котик по имени " + name + " пытается покушать " + appetite + " еды.");
         if (p.decreaseFood(appetite)) {
-            System.out.println("Котик накушался!");
-            this.satiety = true;
+           return this.satiety = true;
+
         } else {
-            System.out.println("Котик не накушался!");
-            this.satiety = false;
+           return this.satiety = false;
         }
+    }
+
+    public void info() {
+        if (satiety) {
+            System.out.println("Котик по имени " + name + " накушался!");
+        } else {
+            System.out.println("Котик " + name + "  не накушался!");
+        }
+    }
+
+    public int getAppetite() {
+        return appetite;
     }
 }

@@ -17,7 +17,14 @@ public class Plate {
         }
     }
 
+    public void addFood(int n) {
+        if (n > 0) {
+            System.out.println("Насыпали в тарелку " + n + " еды!");
+            food += n;
+        }
+    }
+
     public void info() {
-        System.out.println("plate: " + food);
+        System.out.println("В тарелке: " + food + " еды.");
     }
 }
